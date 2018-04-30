@@ -44,3 +44,13 @@ https://medium.com/@harinilabs/day-2-react-router-state-and-props-301ca55c5aaf
 
 4-30-2018
 - Added DeleteUser component to UserRecords (icds_app)
+- $ git config --global user.name "gflowers2012"
+- $ git config --global user.email "gregory1.flowers@gmail.com"
+- $ git init
+- $ git add .
+- $ git config --list
+- $ git commit -m 'initial project version'
+- Show hidden files in file explorer to see .git folder.
+- git remote add origin https://github.com/gflowers2012/ICDS
+- git remote -v
+- git push -f origin master (file:///C:/Program%20Files/Git/mingw64/share/doc/git-doc/git-push.html)

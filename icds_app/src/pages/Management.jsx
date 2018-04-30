@@ -11,7 +11,6 @@ class Management extends Component{
                 <div className='container'>
                     <div className='jumbotron'>
                         <h2>Management</h2>
-                        <DataImport />
                         <UserSearch />
                     </div>
                 </div>

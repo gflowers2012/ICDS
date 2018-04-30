@@ -30,7 +30,7 @@ class factTaxCollectorPayment{
         this.Property = property;
         this.Date = date;
         this.Service = service;
-        this.PaymentAmount;
+        this.PaymentAmount = paymentAmount;
     }
 }
 class factUtilityPayment{
@@ -89,7 +89,8 @@ function traverseTaxCollectorPayments(){
             var properties = recordOne.properties;
             var date = new Date(recordOne.date);
             var service = {type: recordOne.licenseType};
-            var paymentAmount = recordOne.totalPayment;
+            var paymentAmount = parseFloat(recordOne.totalPayment);
+
 
             // Set db variable to MongoDB database using open client
             const db = client.db(dbName);
@@ -142,7 +143,7 @@ function traverseUtilityPayments(){
             var date = new Date(recordOne.paymentDate);
             var service = {type: recordOne.type};
             var paymentAmount = 0; //recordOne.paymentAmount;
-            var balance = recordOne.balance;
+            var balance = parseFloat(recordOne.balance);
 
             // Set db variable to MongoDB database using open client
             const db = client.db(dbName);
@@ -182,7 +183,7 @@ function traverseEmployeePaychecks(){
             var date = new Date(recordOne.paymentDate);
             var department = recordOne.department;
             var position = recordOne.position;
-            var netPayAmount = recordOne.netAmount;
+            var netPayAmount = parseFloat(recordOne.netAmount);
             var hourlyRate = 0;//recordOne.hourlyRate;
 
             var fep = new factEmployeePaycheck(citizen, date, department, property, position, netPayAmount, hourlyRate);
@@ -220,7 +221,7 @@ function traverseParksAndRecRentalPayments(){
             var citizen = {name: recordOne.renter, license: recordOne.license};
             var venue = {name: recordOne.location, retailLocation: recordOne.venue};
             var date = {payment: new Date(recordOne.paymentDate), rental: new Date(recordOne.rentalDate)};
-            var paymentAmount = recordOne.price;
+            var paymentAmount = parseFloat(recordOne.price);
 
             // Set db variable to MongoDB database using open client
             const db = client.db(dbName);

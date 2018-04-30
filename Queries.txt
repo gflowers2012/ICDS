@@ -1,0 +1,30 @@
+db.UtilityPaymentFacts.find({"Citizen.license": "CA-23456" })
+db.UtilityPaymentFacts.find({"Citizen.name": "Lee Chen" }) //FL-5RT35
+db.UtilityPaymentFacts.aggregate([
+    {"$match": {"Citizen.license": "FL-5RT35"}}, 
+    {"$sort": {"Date": -1, "Balance": 1}}, 
+    {"$limit": 2}
+])
+db.UtilityPaymentFacts.aggregate([ 
+    {"$match": {"Balance": {"$gt": 0}}}, 
+    {"$sort": {"Date": 1}}, 
+    {"$group": {"_id": "Service.type", "total": {"$sum": "$Balance"}}}, 
+    {"$limit": 2}
+])
+
+db.TaxCollectorPaymentFacts.find({"Service.type": "drivers"})
+db.TaxCollectorPaymentFacts.find({"Service.type": "Registraton Renewal", "Date": ISODate("2018-01-20T05:00:00Z")}, {"Citizen": 1, "Property": 1, "_id": 0})
+db.TaxCollectorPaymentFacts.aggregate([
+    {"$match": {"Citizen.license": "FL-5RT35", "Citizen.license": "FL-90HGT" }}, 
+    {"$group": {"_id": "$Service.type", "total": { "$sum": "$PaymentAmount" } }}, 
+    {"$limit": 3}
+])
+
+Updates
+ 
+db.UtilityPaymentFacts.update({"Citizen.license": "FL-UJ342"}, {"$set": {"Property.address": "1946 West Cherry"}}, {upsert:true})
+db.UtilityPaymentFacts.find({"Property.address": "1946 West Cherry" }).pretty()
+db.TaxCollectorPaymentFacts.update({"Citizen.license": "FL-90HGT"}, {"$set": {"Service.type": "Driver's License"}}, {upsert:true})
+db.TaxCollectorPaymentFacts.update({"Citizen.license": "FL-90HGT"}, {$addToSet: {"Property": {"make": "Audi", "model": "A7", "year": "2019", "vin":"23424GFDVE", "type": "auto" }}})
+db.TaxCollectorPaymentFacts.find({"Citizen.license": "FL-90HGT"}).pretty()
+db.TaxCollectorPaymentFacts.find({"Service.type": "Driver's License" }).pretty()
