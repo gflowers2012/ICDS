@@ -1,0 +1,46 @@
+https://expressjs.com/en/guide/routing.html
+https://zellwk.com/blog/crud-express-mongodb/
+
+https://appdividend.com/2017/06/28/mern-stack-tutorial/#Step_12_Register_the_routes_at_the_front_end
+https://www.djamware.com/post/59faec0a80aca7739224ee1f/building-crud-web-application-using-mern-stack
+https://medium.com/@harinilabs/day-2-react-router-state-and-props-301ca55c5aaf
+
+4-1-2018
+- icds_app, npm install --save bootstrap (version 4.0)
+- UNMET DEPENDENCY npm install --save jquery (version 3.3.1)
+- UNMET DEPENDENCY npm install --save popper (version 1.14.3)
+- npm install --save react-router-dom
+- npm install --save axios
+- npm install nodemon --save -g (version)
+
+- Added icds_app/src/components/UserService.js 
+- Added CORS to ReactBackendServer/app.js
+- npm install --save cors (version 2.8.4)
+
+4/16/2018
+- Added UserRecords Route to index.js
+- users/exists/FA-UJ324 :Express server crashes because MongoDB throws an error record not found. Cannot access Citizen of undefined.
+- test passes for present data. added undefined condition.
+- added router.get('/taxcollector/:license', router.get('/utility/:license' functions to users.js (ReactBackendServer/routes/users.js)
+
+4/25/2018
+- updated register function in registerServiceWorker.js to include fetch event listener. 
+- deleted UserService.js
+- updated axios.get() method call in UserRecords.js
+- install Git (http://git-scm.com)
+- https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf
+- create a git repo 'IDCS' and commit the ICDS_Prototype Project
+
+4-28-2018
+- Added requestStatus variable to control loading status in UserRecords.js (icds_app)
+- Added returnMessage to returnData object in users.js (ReactBackendServer)
+- Added cytospace library and example code to Graph.jsx (icds_app)
+
+4-29-2018
+- npm install --save cytoscape-popper
+- Increased record number to 50 in TaxCollector and UtilityPaymentsDataSource.js (icds_app)
+- Changed "Analytics" page to "Management" (icds_app)
+- Added deleteuser method to users.js (ReactBackendServer)
+
+4-30-2018
+- Added DeleteUser component to UserRecords (icds_app)
